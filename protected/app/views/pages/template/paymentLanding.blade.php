@@ -1,0 +1,151 @@
+<div class="wrapper-header ">
+    <div class="container" >
+        <div class="col-sm-6 col-xs-6">
+          <div class="page-title" style="padding-bottom:10px;">
+            <h3> Payment <small></small></h3>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-6 ">
+          <ul class="breadcrumb pull-right">
+            <li><a href="{{ URL::to('') }}">Home</a></li>
+                        <li><a href="{{ URL::to('projects') }}">Projects</a></li>
+            <li class="active">Payment</li>
+          </ul>     
+        </div>
+          
+    </div>
+</div>  
+
+<div class="container">
+    <div class="row" style="">
+        <div class="col-md-12 payment-landing" style="text-align:left;">
+        {{Form::open(array('url'=>'submitpledge/veritrans'))}} 
+            <div class="col-md-3"><h3>Credit Card / Paypal</h3>
+                <div style="text-align:left">{{ Lang::get('core.credit_desc') }}</div>
+                <div style="text-align:right;"><a href="#" style="color:blue;font-size:15px" id="trigger">(How to)</a><hr/></div>
+                    <div id="content" style="display:none">
+                        <h3>Credit Card</h3><hr />
+                        <p>{{ Lang::get('core.credit_1') }}</p>
+                        <p>{{ Lang::get('core.credit_2') }}</p>
+                        <p>{{ Lang::get('core.credit_3') }}</p>
+                        <p>{{ Lang::get('core.credit_4') }}</p>
+                        <p>{{ Lang::get('core.credit_5') }}</p> 
+                        <p>{{ Lang::get('core.credit_6') }}</p> 
+                        <p>{{ Lang::get('core.credit_7') }}</p>                                             
+                    </div>
+                
+                <div style="text-align:center;padding-top:0px;padding-right:15px" class="row">
+                    <div  style="padding-top:0px">{{ HTML::image('images/visa.jpg','visa',array('width'=>'85','height'=>'100%'))}}</div>
+                    <div  style="padding-top:25px">{{ HTML::image('images/mastercard.jpg','visa',array('width'=>'65','height'=>'100%x'))}}</div>
+                    <div  style="padding-top:20px" >{{ HTML::image('images/paypal_02.png','visa',array('width'=>'95px','height'=>'100%'))}}</div>
+                </div>
+            
+        
+                <div class="col-md-12" style="margin-top:20px; text-align:center;"><button type="submit" class="btn btn-primary" id="btn-sub-fun">Credit Card</button></div>
+                <hr />
+            </div>
+        {{ Form::close() }}
+ {{Form::open(array('url'=>'submitpledge/veritrans'))}} 
+         <div class="col-md-3"><h3>Internet Banking <small>(Veritrans)</small></h3>
+           <div style="text-align:left">{{ Lang::get('core.internet_desc') }}</div>
+		   <div style="text-align:right;"><a href="#" style="color:blue;font-size:15px" id="trigger4">(How to)</a><hr/></div>
+            <div id="content4" style="display:none">
+                        <h3>Internet Banking (Veritrans)</h3><hr />
+                        <p>{{ Lang::get('core.internet_1') }}</p>
+                        <p>{{ Lang::get('core.internet_2') }}</p>
+                        <p>{{ Lang::get('core.internet_3') }}</p>                        
+                        <p>{{ Lang::get('core.internet_4') }}</p>
+                        <p>{{ Lang::get('core.internet_5') }}</p> 
+                        <p>{{ Lang::get('core.internet_6') }}</p>                                             
+                </div>
+            
+            <div style="padding-top:0px;padding-right:0px" class="row">                    
+                <div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/logo_bcaklikpay.png','visa',array('width'=>'69px','height'=>'100%'))}}</div>
+                <div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/ATM_Bersama.png','visa',array('width'=>'59','height'=>'100%'))}}</div>
+                                      
+            </div>
+
+            <div style="padding-top:10px;" class="row">
+				<div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/logo_prima_atm(4).png','visa',array('width'=>'59px','height'=>'100%'))}}</div>
+                <div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/mandiri-clickpay.png','visa',array('width'=>'75','height'=>'100%'))}}</div>              				
+            </div>
+
+			<div style="padding-top:15px;" class="row">
+				<div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/cimb-clicks.png','visa',array('width'=>'100','height'=>'100%'))}}</div>
+                 <div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/logo_epay_bri.png','visa',array('width'=>'85px','height'=>'100%'))}}</div> 
+			</div>
+        
+            
+            <div class="col-md-12" style="margin-top:14px; text-align:center;"><button type="submit" class="btn btn-primary" id="btn-sub-fun">Internet Banking</button></div>
+            <hr />
+         </div>
+		{{ Form::close() }}
+		{{Form::open(array('url'=>'submitpledge/transfer'))}}
+            <div class="col-md-3"><h3>Bank Transfer</h3>
+                <div>{{ Lang::get('core.bank_desc') }}</div>
+                 <div style="text-align:right;"><a href="#" style="color:blue;font-size:15px" id="trigger2">(How to)</a><hr/></div>
+                    <div id="content2" style="display:none">
+                        <h3>Bank Transfer</h3><hr />
+                        <p>{{ Lang::get('core.bank_1') }}</p>
+                        <p>{{ Lang::get('core.bank_2') }}</p>
+                        <p>{{ Lang::get('core.bank_3') }}</p> 
+                        <p>{{ Lang::get('core.bank_4') }}</p>
+                        <p>{{ Lang::get('core.bank_5') }}</p>                                              
+                    </div>
+                <div class="row" style="margin-bottom:35px;margin-top:27px">
+                    <div class="col-md-6 col-xs-6" style="text-align:center"><input type="radio" name="bank" value="bni" style="margin-right:5px">{{ HTML::image('images/bni.jpg','bni',array('width'=>'60px','height'=>'100%'))}}</div>
+                    <div class="col-md-6 col-xs-6" style="text-align:center"><input type="radio" name="bank" value="bca" style="margin-right:5px">{{ HTML::image('images/bca.jpg','bca',array('width'=>'66px','height'=>'100%'))}}</div>                   
+                </div>
+                <div class="row">                    
+                     <div class="col-md-6 col-xs-6" style="text-align:center"><input type="radio" name="bank" value="mandiri" style="margin-right:5px">{{ HTML::image('images/mandiri.png','mandiri',array('width'=>'63px','height'=>'100%'))}}</div>
+					<div class="col-md-6 col-xs-6" style="text-align:center"><input type="radio" name="bank" value="bri" style="margin-right:5px">{{ HTML::image('images/bri.png','bri',array('width'=>'80px','height'=>'100%','style'=>'margin-right:-15px'))}}</div>
+                 </div>
+				<div class="row" style="margin-top:27px">
+						<div class="col-md-6 col-xs-6" style="text-align:center"><input type="radio" name="bank" value="cimb" style="margin-right:5px">{{ HTML::image('images/cimb.png','cimb',array('width'=>'85px','height'=>'100%','style'=>'margin-right:-22px'))}}</div>
+                       <div class="col-md-6 col-xs-6" style="text-align:center"><input type="radio" name="bank" value="permata" style="margin-right:5px">{{ HTML::image('images/Logo_Bank_Permata.png','permata',array('width'=>'90px','height'=>'100%','style'=>'margin-top:-12px; margin-right:-27px'))}}</div>
+				</div>
+                
+                <div class="col-md-12" style="margin-top:8px; text-align:center;"><button type="submit" class="btn btn-primary" id="btn-sub-fun">Bank Transfer</button></div>   
+                <hr />
+            </div>
+        {{ Form::close()}}
+		
+        {{Form::open(array('url'=>'submitpledge/other'))}}
+            <div class="col-md-3"><h3>Other Payment <small>(Debet Card , Cash, etc)</small></h3>
+                <div>{{ Lang::get('core.other_desc') }}</div>
+                <div style="text-align:right;"><a href="#" style="color:blue;font-size:15px" id="trigger3">(How to)</a><hr/></div>
+                    <div id="content3" style="display:none">
+                        <h3>Other Payment</h3><hr />
+                        <p>{{ Lang::get('core.other_1') }}</p>
+                        <p>{{ Lang::get('core.other_2') }}</p>
+                        <p>{{ Lang::get('core.other_3') }}</p> 
+                        <p>{{ Lang::get('core.other_4') }}</p>
+                        <p>{{ Lang::get('core.other_5') }}</p>
+
+                    </div>
+                <div style="padding-top:10px">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/debit bca.jpg','visa',array('width'=>'57','height'=>'100%'))}}</div>
+                        <div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/DEBIT MANDIRI.jpg','visa',array('width'=>'75','height'=>'100%'))}}</div>
+                       
+                    </div>
+
+                    <div class="row" style="margin-top:20px">
+						 <div class="col-md-6 col-xs-6" style="text-align:center;padding-left:35px">{{ HTML::image('images/mandiri ecash_logo.png','visa',array('width'=>'75','height'=>'100%'))}}</div>
+                        <div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/T-Cash.png','visa',array('width'=>'70','height'=>'100%'))}}</div>                    
+                     </div>
+					
+					<div class="row" style="margin-top:20px">
+						<div class="col-md-6 col-xs-6" style="text-align:center;padding-left:30px">{{ HTML::image('images/Logo_Indosat_Dompetku.png','visa',array('width'=>'75','height'=>'100%'))}}</div>
+						<div class="col-md-6 col-xs-6" style="text-align:center">{{ HTML::image('images/20120826113520!Indomaret_Baru_1.png','visa',array('width'=>'75','height'=>'100%'))}}</div>
+                </div>
+                <div class="col-md-12" style="margin-top:11px; text-align:center;"><button type="submit" class="btn btn-primary" id="btn-sub-fun">Other Payment</button></div>
+                <hr />
+            </div>
+        {{ Form::close()}}
+        </div>
+    </div>
+</div>
+
+{{ HTML::script('js/plugins/js-modal-master/jh-modal.js') }}
+{{ HTML::style('js/plugins/js-modal-master/jh-modal.css') }}

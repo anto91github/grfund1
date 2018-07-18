@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 17, 2015, 10:39:10 AM
+    Author     : Koento
+*/
+table.grid{ border-collapse: collapse; width: 100%;}
+table.grid th{ padding: 5px; border-top: 1px solid #006dcc; border-bottom: 1px solid #006dcc; background-color: #FFF; color: #006dcc; font-weight: normal; }
+table.grid td, tr.alt td{ padding: 5px;  }
+table.grid tbody tr { background-color: #FFF; border-bottom:1px solid #E8E8E8;  }
+table.grid tbody tr:hover { background-color: #F0F0F0; }
+table.grid tbody tr.alt { background-color: #E8E8E8;  }
+table.grid tbody tr.alt:hover{ background-color: #E8E8E8; }

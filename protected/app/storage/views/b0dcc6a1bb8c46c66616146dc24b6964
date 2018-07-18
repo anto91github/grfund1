@@ -1,0 +1,160 @@
+<?php echo HTML::script('sximo/js/plugins/chartjs/Chart.min.js'); ?>
+<div class="page-content row">
+	<div class="page-header">
+	  <div class="page-title">
+		<h3> Dashboard <small> Summary info site </small></h3>
+	  </div>
+
+		  <ul class="breadcrumb">
+			<li><a href="<?php echo URL::to('config/dashboard'); ?>">Home</a></li>
+			<li class="active">Dashboard</li>
+		  </ul>
+		  
+	</div>
+	<div class="page-content-wrapper"> 	
+	
+	<?php if(Session::get('gid') ==1 || Session::get('gid') ==2): ?>
+		<section >	
+				<div class="row m-l-none m-r-none m-t  white-bg shortcut " >				
+					<h4 style="padding-left:20px;">New Submitted Project</h4>
+				</div>					 
+					<div class="table-responsive">
+						    <table class="table table-striped ">
+						        <thead>
+									<tr>
+										<th> No </th>
+										<th> Name</th>					
+										<th> Tgl. Submit</th>											
+										<th> Email</th>
+										<th> Owner</th>
+										<th> Show</th>
+									  </tr>
+						        </thead>
+						        	  <?php /**/ $i=1 /**/ ?>
+						        <tbody>
+						        	<?php foreach ($pending as $p): ?>
+						        	<?php /**/ $id = SiteHelpers::encryptID($p->project_id) /**/ ?>
+							          <tr>
+							          	<td width="50"> <?php echo $i; ?></td>
+							          	<td><?php echo $p->title; ?></td>
+							          	<td><?php echo $p->created_date; ?></td>
+							          	<td><?php echo $p->email; ?></td>
+							          	<td><?php echo $p->first_name; ?></td>
+							          	<td><a href="<?php echo URL::to('project/add/'.$id); ?>" class="tips btn btn-xs btn-success" title="Edit"><i class="fa fa-edit"></i></a></td>
+							          </tr>
+							          <?php /**/ $i++ /**/ ?>
+						          <?php endforeach; ?>    
+						        </tbody>						      
+						    </table>							
+						</div>						
+				
+
+				<div class="row m-l-none m-r-none m-t  white-bg shortcut " >		
+					<h4 style="padding-left:20px;">Expired Project</h4>
+				</div> 
+					<div class="table-responsive">
+						    <table class="table table-striped ">
+						        <thead>
+									<tr>
+										<th> No </th>
+										<th> Name </th>
+										<th> Due Date</th>					
+										<th> Total</th>											
+										<th> Funded</th>										
+										<th> Show</th>
+									 </tr>
+						        </thead>
+						        		<?php /**/ $i=1 /**/ ?>	  
+						        <tbody>
+						        	<?php foreach ($expired as $e): ?>
+						        	<?php /**/ $id = SiteHelpers::encryptID($e->project_id) /**/ ?>
+							          <tr>
+							          	<td width="50"><?php echo $i; ?></td>							          	
+							          	<td width="300"><?php echo $e->title; ?></td>
+							          	<td width="220"><?php echo $e->due_date; ?></td>
+							          	<td width="258"><?php echo number_format($e->amount,0,",","."); ?></td>
+							          	<td><?php echo number_format($e->funded,0,",","."); ?></td>
+							          	<td><a href="<?php echo URL::to('project/add/'.$id); ?>" class="tips btn btn-xs btn-success" title="Edit"><i class="fa fa-edit"></i></a></td>
+							          </tr>
+							          <?php /**/ $i++ /**/ ?>
+						          <?php endforeach; ?>    
+						        </tbody>						      
+						    </table>							
+						</div>	
+
+				<div class="row m-l-none m-r-none m-t  white-bg shortcut " >		
+					<h4 style="padding-left:20px;">Draft backer</h4>
+				</div> 
+					<div class="table-responsive">
+						    <table class="table table-striped ">
+						        <thead>
+									<tr>
+										<th> No </th>
+										<th> Name </th>
+										<th> Back Date</th>					
+										<th> Project</th>											
+										<th> Reward</th>
+										<th> Payment</th>										
+										<th> Show</th>
+									 </tr>
+						        </thead>
+						        		<?php /**/ $i=1 /**/ ?>	  
+						        <tbody>
+						        	<?php foreach ($draft as $d): ?>
+						        	<?php /**/ $id = SiteHelpers::encryptID($d->backer_id) /**/ ?>
+							          <tr>
+							          	<td width="50"><?php echo $i; ?></td>							          	
+							          	<td width="150"><?php echo $d->name; ?></td>
+							          	<td width="150"><?php echo $d->backer_date; ?></td>
+							          	<td width="258"><?php echo $d->title; ?></td>
+							          	<td><?php echo $d->reward_title; ?></td>
+							          	<td width="100"><?php echo $d->payment_method; ?> </td>
+							          	<td><a href="<?php echo URL::to('backer/add/'.$id); ?>" class="tips btn btn-xs btn-success" title="Edit"><i class="fa fa-edit"></i></a></td>
+							          </tr>
+							          <?php /**/ $i++ /**/ ?>
+						          <?php endforeach; ?>    
+						        </tbody>						      
+						    </table>							
+						</div>
+
+				<div class="row m-l-none m-r-none m-t  white-bg shortcut " >		
+					<h4 style="padding-left:20px;">Project Canceled</h4>
+				</div> 
+					<div class="table-responsive">
+						    <table class="table table-striped ">
+						        <thead>
+									<tr>
+										<th> No </th>
+										<th> Name</th>					
+										<th> Tgl. Submit</th>											
+										<th> Email</th>
+										<th> Owner</th>
+										<th> Show</th>
+									  </tr>
+						        </thead>
+						        		<?php /**/ $i=1 /**/ ?>	  
+						        <tbody>
+						        	<?php foreach ($cancel as $c): ?>
+						        	<?php /**/ $id = SiteHelpers::encryptID($c->project_id) /**/ ?>
+							          <tr>
+							          	<td width="50"> <?php echo $i; ?></td>
+							          	<td><?php echo $c->title; ?></td>
+							          	<td><?php echo $c->created_date; ?></td>
+							          	<td><?php echo $c->email; ?></td>
+							          	<td><?php echo $c->first_name; ?></td>
+							          	<td><a href="<?php echo URL::to('project/add/'.$id); ?>" class="tips btn btn-xs btn-success" title="Edit"><i class="fa fa-edit"></i></a></td>
+							          </tr>
+							          <?php /**/ $i++ /**/ ?>
+						          <?php endforeach; ?>    
+						        </tbody>						      
+						    </table>							
+						</div>	
+		</section>	
+
+				
+	</div>
+	<?php endif; ?>
+
+
+
+

@@ -1,0 +1,379 @@
+<style>
+			video#bgvid 
+			{ 
+			    position: fixed;
+			    top: 50%;
+			    left: 50%;
+			    min-width: 100%;
+			    min-height: 100%;
+			    width: auto;
+			    height: auto;
+			    z-index: -100;
+			    -ms-transform: translateX(-50%) translateY(-50%);
+			    -moz-transform: translateX(-50%) translateY(-50%);
+			    -webkit-transform: translateX(-50%) translateY(-50%);
+			    transform: translateX(-50%) translateY(-50%);
+			    background: url(header_new.jpg) no-repeat;
+			    background-size: cover; 
+			}
+
+			video#bgvid {
+    			transition: 1s opacity;
+			}
+
+			.video-logo
+			{
+				/*text-align:center;
+				padding-top:0px; 
+				background: url('video/home-vid/logo.png') center no-repeat; 
+				height:165px;
+				background-color: red;*/
+
+				width: 100%;
+			    height: 165px;
+			    background-image: url('video/home-vid/logo.png');
+			    background-repeat: no-repeat;
+			    background-size: contain;			    
+			    
+			}
+
+			.grf-menu
+			{
+				height:165px;
+				margin-top:150px;				
+				//background-color: red;				
+			}
+
+			.charity-btn
+			{
+				background: url('video/home-vid/charity.png') center;
+				//background-color: red;
+				height: 85%;
+				background-repeat: no-repeat;				
+			}
+
+			.charity-btn:hover
+			{
+				background: url('video/home-vid/charity-hover.png') center;
+				//background-color: yellow;
+				height: 85%;
+				background-repeat: no-repeat;				
+			}
+
+			.business-btn
+			{
+				background: url('video/home-vid/business.png') center;
+				//background-color: blue;
+				height: 85%;
+				background-repeat: no-repeat;
+			}
+
+			.business-btn:hover
+			{
+				background: url('video/home-vid/business-hover.png') center;
+				//background-color: green;
+				height: 85%;
+				background-repeat: no-repeat;
+			}
+			.binus-partner
+			{
+				background: url('video/home-vid/binus.png') center;
+				//background-color: yellow;
+				height: 291px;
+				background-repeat: no-repeat;
+			}
+			.binus-partner:hover
+			{
+				background: url('video/home-vid/binus-hover.png') center;
+				//background-color: yellow;
+				height: 291px;
+				background-repeat: no-repeat;
+			}
+
+			.white_label
+			{
+				background: url('video/home-vid/footer.png');
+				//background-color: yellow;				
+				height: 145px;
+				background-repeat: no-repeat;
+			}
+
+		      .our-clients
+		      {
+		        background: url('video/home-vid/footer.png');
+		        background-repeat: no-repeat;
+		      }
+
+
+
+			.stopfade { opacity: .5; }
+
+			/*@media screen and (max-device-width: 580px) {
+			    html {
+			         background: url(header_new.jpg) #000 no-repeat center center fixed;
+			    }
+			    #bgvid {
+			        display: none;
+			    }
+			}*/
+
+			@media (max-width: 580px) {
+				/*.charity-btn
+				{
+					background: url('video/home-vid/charity.png') center;
+					background-color: red;
+					height: 85%;
+					background-repeat: no-repeat;				
+				}*/
+				.grf-menu
+				{					
+					margin-top:10px;
+					//vertical-align: middle;
+					height:150px;
+					//background-color: green;
+				}
+
+				.video-logo
+				{
+					height: 100px;					
+				}
+
+				body 
+				{
+			        //background: url(img/header_new7.jpg) no-repeat;
+
+			        width: 100%;
+				    height: 470px;
+				    background-image: url('img/ss_vid1.jpg');
+				    background-repeat: no-repeat;
+				    background-size: cover;
+				    
+
+				    /*width: 100%;
+				    height: 400px;
+				    background-image: url('img/header_new.jpg');
+				    background-size: 100% 100%;
+				    border: 1px solid red;*/			    
+				}
+			    #bgvid {
+			        display: none;
+			    }
+				
+			}
+</style>
+
+		<div style="text-align:right;padding-top:0px">			
+			<ul class="list-unstyled list-inline pull-right">
+                       <span style="color:#1ab394" class="hidden-xs"><?php echo Lang::get('core.language'); ?></span>
+                         <?php if(!Auth::check()): ?>
+                            <?php if(CNF_MULTILANG ==1): ?>
+                            <li class="user dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><?php echo HTML::image('images/'.Lang::get('core.lang_flag')); ?><!--<i class="icon-flag2"></i>--><i class="caret"></i></a>
+                                 <ul class="dropdown-menu dropdown-menu-right icons-right">                                    
+                                    <?php foreach(SiteHelpers::langOption() as $lang): ?>
+                                        <li><a href="<?php echo URL::to('home/lang/'.$lang['folder']); ?>">
+                                            <?php if ($lang['name']=='English'){ ?>
+                                               <?php echo HTML::image('images/britishFlagIcon.png', 'eng', array('style' => 'float:right;')); ?>                                       
+                                            <?php } else { ?>                                          
+                                               <?php echo HTML::image('images/Indonesia-Flag-icon.png', 'ind', array('style' => 'float:right;')); ?>  
+                                            <?php } ?> 
+                                            <!--<i class="icon-flag2"></i>--> <?php echo $lang['name']; ?></a></li>
+                                    <?php endforeach; ?> 
+                                </ul>
+                            </li>   
+                            <?php endif; ?>	
+                            
+                        <?php else: ?>
+                                <!--<li><a href="<?php /* URL::to('user/profile') */ ?>"><i class="fa fa-user "></i>Account</a></li>-->
+                                 <?php if(CNF_MULTILANG ==1): ?>
+                                <li  class="user dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><?php echo HTML::image('images/'.Lang::get('core.lang_flag')); ?><!--<i class="icon-flag2"></i>--><i class="caret"></i></a>
+                                     <ul class="dropdown-menu dropdown-menu-right icons-right">
+                                        <?php foreach(SiteHelpers::langOption() as $lang): ?>
+                                            <li><a href="<?php echo URL::to('home/lang/'.$lang['folder']); ?>">
+                                                <?php if ($lang['name']=='English'){ ?>                                      
+                                                    <?php echo HTML::image('images/britishFlagIcon.png', 'eng', array('style' => 'float:right;')); ?>
+                                                <?php } else { ?>                                         
+                                                    <?php echo HTML::image('images/Indonesia-Flag-icon.png', 'ind', array('style' => 'float:right;')); ?>  
+                                                <?php } ?>                                              
+                                                <!--<i class="icon-flag2"></i>--> <?php echo $lang['name']; ?></a></li>
+                                        <?php endforeach; ?> 
+                                    </ul>
+                                </li>   
+                                <?php endif; ?>  
+                                <li><a href="<?php echo URL::to('account'); ?>"><i class="fa fa-user "></i><?php echo Lang::get('core.header_account'); ?></a></li>
+                                <?php if(Auth::user()->group_id==1 || Auth::user()->group_id==2 || Auth::user()->group_id==4): ?>
+                                <li><a href="<?php echo URL::to('dashboard'); ?>"><i class="fa fa-desktop"></i><?php echo Lang::get('core.header_dashboard'); ?></a></li>	
+                                <?php endif; ?>
+                                <li><a href="<?php echo URL::to('user/logout'); ?>" ><i class="fa  fa-sign-out"></i><span class="hidden-xs"><?php echo Lang::get('core.header_logout'); ?></span></a></li>
+                               				 
+                        <?php endif; ?>	
+                    </ul>
+		</div>
+
+		<div class="video-logo">
+			<!--<img src="video/home-vid/logo.png" height="100px">-->
+			<!--<div style="background: url('video/home-vid/binus.png') center height:200px; width:100px">
+				&nbsp;
+			</div>-->
+		</div>
+		<video autoplay loop poster="header_new.jpg" id="bgvid">		    
+		    <source src="video/home-vid/Comp_2.mp4" type="video/mp4">
+		</video>
+		<!--<button id="vidpause">Pause</button>-->
+		<br/>
+		<!--<div style="height:305px;margin-top:80px">-->
+		<div class="grf-menu" align="center">
+			<div class="col-md-6" style="padding-top:0px;">
+				<a href="charity">				
+					<!--<img src="video/home-vid/charity.png">-->
+					<img src="video/home-vid/charity.png" class="img-responsive" onmouseover="hover_charity(this);" onmouseout="unhover_charity(this);" align="center">				
+				</a>
+			</div>
+
+			<div class="col-md-6" style="padding-top:0px;">
+				<a href="UnderConstruction"><!--<a href="startup">-->
+					<!--<img src="video/home-vid/business.png">-->
+					<img src="video/home-vid/business.png" class="img-responsive" onmouseover="hover_business(this);" onmouseout="unhover_business(this);" align="center">				
+
+				</a>
+			</div>			
+		</div>
+		
+		<!--<div class="container" style="text-align:center;background-color:black;color:white;margin-bottom:10px;opacity:0.25;font-size:21px;"><b>Our Partners Site</b></div>
+		<div class="" style="text-align:center; padding-bottom:0px">
+			<div style="text-align:center;margin-bottom:50px;color:white;font-size:35px;font-family:verdana">
+				<b>OR</b>
+			</div>
+			<img src="video/home-vid/our-partner-site.png">
+		</div>-->
+
+		<!--<div class="white_label">
+			<div class="col-xs-4" style="text-align:center;">
+				<a href=""><img src="video/home-vid/binus.png" height="130" onmouseover="hover_binus(this);" onmouseout="unhover_binus(this);"></a>
+			</div>			
+			<div class="col-xs-4" style="text-align:center">
+				<a href=""><img src="video/home-vid/tahir.png" height="130" onmouseover="hover_tahir(this);" onmouseout="unhover_tahir(this);"></a>
+			</div>
+			<div class="col-xs-4" style="text-align:center">
+				<a href=""><img src="video/home-vid/tzuchi.png" height="130" onmouseover="hover_tzuchi(this);" onmouseout="unhover_tzuchi(this);"></a>
+			</div>
+		</div>-->
+
+		<!-- BEGIN CLIENTS -->
+    
+     <!--<div class="row margin-bottom-40 our-clients" style="padding-left:60px; padding-right:10px;">
+      <div class="area-header col-sm-3 col-md-3">
+        <h2 style="font-size:20px;"><?php echo Lang::get('core.home_our_client'); ?></h2>
+        <p><?php echo Lang::get('core.home_our_client_d'); ?></p>
+      </div>
+
+      <div class="col-sm-12 col-md-12 client">
+        <div class="owl-carousel owl-carousel6-brands">
+         <?php foreach($label as $label_slider): ?>   
+          <div class="client-item" style="height:128px;">
+              <a href="showHome/<?php echo $label_slider->alias; ?>" target="_blank">
+                  <img src="video/home-vid/<?php echo $label_slider->image; ?>" class="img-responsive" height="130" onmouseover="hover_<?php echo $label_slider->alias; ?>(this);" onmouseout="unhover_<?php echo $label_slider->alias; ?>(this);">
+              </a>            
+          </div>          
+          <?php endforeach; ?>        
+          
+         </div>
+      </div>         
+    </div>--> 
+
+    <!-- END CLIENTS --> 
+
+
+		<div id="footer" style="position: fixed; bottom: 0; width: 100%; background-color:#E9E9E9">
+			<div class="container">
+				<div class="col-md-12" style="padding:10 0 10 0"> Copyright 2015 GotongRoyongFund. ALL Rights Reserved. Supported by <a href="http://cerdasmadani.org/">Yayasan Pendidikan Cerdas Madani Indonesia</a> <a href="privacy-policy">Privacy Policy</a> | <a href="terms-conditions">Terms</a></div>
+				
+			</div>	
+		</div>
+
+		<?php echo HTML::style('sximo/themes/mango/js/owl-carousel/owl.carousel.css'); ?>	
+		<?php echo HTML::style('sximo/themes/mango/js/owl-carousel/owl.theme.css'); ?>
+		<?php echo HTML::script('sximo/themes/mango/js/owl-carousel/owl.carousel.js'); ?>
+
+<script type="text/javascript">
+	var vid = document.getElementById("bgvid"),
+pauseButton = document.getElementById("vidpause");
+function vidFade() {
+    vid.classList.add("stopfade");
+}
+vid.addEventListener('ended', function() {
+    // only functional if "loop" is removed 
+     vid.pause();
+	// to capture IE10
+	vidFade();
+});
+/*pauseButton.addEventListener("click", function() {
+    vid.classList.toggle("stopfade");
+	if (vid.paused) {
+vid.play();
+		pauseButton.innerHTML = "Pause";
+	} else {
+        vid.pause();
+        pauseButton.innerHTML = "Paused";
+	}
+})*/
+<?php foreach($label_2 as $label): ?>
+  function hover_<?php echo $label->alias; ?>(element) {
+      element.setAttribute('src', 'video/home-vid/<?php echo $label->alias; ?>-hover.png');
+  }
+  function unhover_<?php echo $label->alias; ?>(element) {
+      element.setAttribute('src', 'video/home-vid/<?php echo $label->image; ?>');
+  }
+<?php endforeach; ?>
+
+function hover_charity(element) {
+      element.setAttribute('src', 'video/home-vid/charity-hover.png');
+  }
+function unhover_charity(element) {
+      element.setAttribute('src', 'video/home-vid/charity.png');
+  }
+
+ function hover_business(element) {
+      element.setAttribute('src', 'video/home-vid/business-hover.png');
+  }
+  function unhover_business(element) {
+      element.setAttribute('src', 'video/home-vid/business.png');
+  }
+
+
+
+jQuery(document).ready(function(){
+	$(".owl-carousel6-brands").owlCarousel({
+                pagination: false,
+                navigation: $(window).width() > 640 ? true : false,
+                navigationText: [
+                    "<span class='fa fa-angle-left' style='color:#fff;'></span>",
+                    "<span class='fa fa-angle-right' style='color:#fff;'></span>"
+                    ],
+                items: 6,
+                addClassActive: true,
+                itemsCustom : [
+                    [0, 1],
+                    [320, 2],
+                    [480, 2],
+                    [700, 3],
+                    [975, 5],
+                    [1200, 7],
+                    [1400, 7],
+                    [1600, 7]
+                ],
+            });
+            
+            $(".owl-carousel5-brands").owlCarousel({
+                pagination: false,
+                navigation: $(window).width() > 640 ? true : false,
+                navigationText: [
+                    "<span class='fa fa-angle-left' style='color:#fff;'></span>",
+                    "<span class='fa fa-angle-right' style='color:#fff;'></span>"
+                    ],
+                items: 1,
+                addClassActive: true,
+                singleItem:true
+            });
+	});
+
+</script>

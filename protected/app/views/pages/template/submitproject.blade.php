@@ -1,0 +1,68 @@
+<div class="wrapper-header ">
+    <div class=" container">
+		<div class="col-sm-6 col-xs-6">
+		  <div class="page-title">
+			<h3> {{ $project->title }} </h3>
+		  </div>
+		</div>
+		<div class="col-sm-6 col-xs-6 ">
+		  <ul class="breadcrumb pull-right">
+			<li><a href="{{ URL::to('') }}">Home</a></li>
+			<li class="active">{{ $project->title }} </li>
+		  </ul>		
+		</div>
+		  
+    </div>
+</div>	
+	
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        	<div class="row front-steps-wrapper front-steps-count-3">
+			      <div class="col-md-4 col-sm-4 front-step-col">
+			        <div class="front-step front-step1">
+			          <h2>Start Your Project</h2>
+			          <p>Make your own campaign</p>
+			        </div>
+			      </div>
+			      <div class="col-md-4 col-sm-4 front-step-col">
+			        <div class="front-step front-step2">
+			          <h2>Create Your Story and Content</h2>
+			          <p>Explain your campaign and offer reward levels.</p>
+			        </div>
+			      </div>
+			      <div class="col-md-4 col-sm-4 front-step-col">
+			        <div class="front-step front-step3-active">
+			          <h2>Fund Your Project</h2>
+			          <p>Your Project is ready</p>
+			        </div>
+			      </div>
+			    </div>
+            <div class="span6" style="text-align: center; font-size: 16px; margin: 50px 0; line-height: 40px">
+      			<p>Thanks for create new project. Your Project will be publish less than 48 hours.</p>
+      			
+                <p>For more information, send e-mail to : support@gotongroyong.fund</p>
+                
+                <a href="{{ URL::to('')}}"  class="btn btn-primary" >Back to Home</a> <a href="{{ URL::to('manage-project/'.$project->project_alias)}}"  class="btn btn-primary" >Manage Project</a>
+            	<br/>
+            	<br/>
+            	<br/>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+		
+
+<div class="container" style="margin-bottom:40px;">
+	<div class="row">
+	
+	
+	</div>
+</div>					

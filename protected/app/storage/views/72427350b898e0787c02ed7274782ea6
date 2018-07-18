@@ -1,0 +1,151 @@
+<style>
+	#sb-fb
+	{
+		background-color:#3B5998;
+	}
+	#sb-fb:hover
+	{
+		background-color:#517FA4;
+	}
+
+	#sb-tw
+	{
+		background-color:#00ACED;
+	}
+	#sb-tw:hover
+	{
+		background-color:#5bc0de;
+	}
+
+	#sb-g
+	{
+		background-color:#DD4B39;
+	}
+	#sb-g:hover
+	{
+		background-color:#D9534F;
+	}
+
+	#sb-you
+	{
+		background-color:#BB0000;
+	}
+	#sb-you:hover
+	{
+		background-color:#d9534f;
+	}
+
+	#sb-ig
+	{
+		background-color:#bb5e00;
+	}
+	#sb-ig:hover
+	{
+		background-color:#d56a00;
+	}
+
+	#sb-link
+	{
+		background-color:#007BB5;
+	}
+	#sb-link:hover
+	{
+		background-color:#517FA4;
+	}
+</style>
+<div class="wrapper-header ">
+    <div class=" container">
+		<div class="col-sm-6 col-xs-6">
+		  <div class="page-title">
+			<h3> <?php echo Lang::get('core.contact_us'); ?> <small></small></h3>
+		  </div>
+		</div>
+		<div class="col-sm-6 col-xs-6 ">
+		  <ul class="breadcrumb pull-right">
+			<li><a href="<?php echo URL::to(''); ?>"><?php echo Lang::get('core.home'); ?></a></li>
+			<li class="active"><?php echo Lang::get('core.contact_us'); ?> </li>
+		  </ul>		
+		</div>
+		  
+    </div>
+</div>
+
+<div class="wrapper-container container">
+	<div class="row">
+		
+		<div class="col-md-6">
+		 <h3> <?php echo Lang::get('core.contact_send'); ?></h3>
+<?php echo Form::open(array('url'=>'home/contactform', 'class'=>'form-vertical','parsley-validate'=>'','novalidate'=>' ')); ?>
+	<?php if(Session::has('message')): ?>	  
+		   <?php echo Session::get('message'); ?>
+	<?php endif; ?>	
+		
+		<ul class="parsley-error-list">
+			<?php foreach($errors->all() as $error): ?>
+				<li><?php echo $error; ?></li>
+			<?php endforeach; ?>
+		</ul>
+
+		 <div class="form-group  ">
+		<label for="ipt"> <?php echo Lang::get('core.contact_name'); ?></label>
+		  <?php echo Form::text('name', null,array('class'=>'form-control', 'placeholder'=>'', 'required'=>'Your Name'  )); ?> 
+		
+	  </div> 			
+						 					
+	  <div class="form-group  ">
+		<label for="ipt"> <?php echo Lang::get('core.contact_email'); ?></label>
+		
+		  <?php echo Form::text('sender', null,array('class'=>'form-control', 'placeholder'=>'', 'required'=>'email'  )); ?> 
+		
+	  </div> 					
+	  <div class="form-group  ">
+		<label for="ipt"> <?php echo Lang::get('core.contact_subject'); ?> </label>
+		
+		  <?php echo Form::text('subject', null,array('class'=>'form-control', 'placeholder'=>Lang::get('core.contact_subject'), 'required'=>'true'   )); ?> 
+		 
+	  </div> 					
+	  <div class="form-group  ">
+		<label for="ipt"> <?php echo Lang::get('core.contact_message'); ?> </label>	
+		<?php echo Form::textarea('message',null,array('class'=>'form-control', 'placeholder'=>Lang::get('core.contact_message2'), 'required'=>'true'   )); ?>		 
+	  </div>
+	  <div class="form-group  ">
+		<button type="submit" class="btn btn-primary ">  <?php echo Lang::get('core.contact_sendf'); ?>  </button>		 
+	  </div>
+	  <input name="redirect" value="contact-us" type="hidden">	  
+  
+<?php echo Form::close(); ?>		
+		</div>
+		
+		<div class="col-md-6 ">
+		<h3> <?php echo Lang::get('core.contact_info'); ?></h3>
+
+			<!--<p>Gedung Sona Topas, Jl. Jenderal Sudirman Kavling 26<br/>
+			Jakarta Selatan 12920, Indonesia<br/>
+			Telp. +6221 - 2506339<br/>
+			Fax. +6221 - 2506617 <br/>
+			Email: support@gotongroyong.fund<br/>
+			Web: gotongroyong.fund</p>-->
+			<p>Graha Selaras, Jl. K.H Mas Mansyur No. 59<br/>
+			Jakarta Pusat 10230, Indonesia<br/>
+			Telp. +6221 - 3190 9100<br/>
+			Fax. +6221 - 3190 9200 <br/>
+			Email: support@gotongroyong.fund<br/>
+			Web: gotongroyong.fund</p>
+			<h3> <?php echo Lang::get('core.contact_sosial'); ?></h3>
+		<div class="team-social"> 
+			<a id="sb-fb" class="btn btn-rounded btn-primary btn-icon" title="Facebook" href="https://www.facebook.com/gotongroyongfund"><i class="fa fa-facebook"></i></a> 
+			<a id="sb-tw" class="btn btn-rounded btn-info btn-icon" title="Twitter" href="http://twitter.com/GRFund"><i class="fa fa-twitter"></i></a> 
+			<a id="sb-g" class="btn btn-rounded btn-danger btn-icon" title="Google+" href="https://plus.google.com/113225882217101783794"><i class="fa fa-google-plus"></i></a>
+			<a id="sb-you" class="btn btn-rounded btn-danger btn-icon" title="Youtube" href="https://www.youtube.com/channel/UCtjiTvU4D8cSSZYnQBGZlhA"><i class="fa fa-youtube-play "></i></a>		
+			<a id="sb-ig" class="btn btn-rounded btn-danger btn-icon" title="Instagram" href="https://www.instagram.com/gotongroyongfund/"><i class="fa fa-instagram"></i></a>		
+			<a id="sb-link" class="btn btn-rounded btn-info btn-icon" title="LinkedIn" href="https://www.linkedin.com/company/gotong-royong-fund"><i class="fa fa-linkedin"></i></a> 
+		</div>	
+<h3><?php echo Lang::get('core.contact_google'); ?> </h3>
+<!--<iframe style="margin-bottom:-5px;" src="http://maps.google.com/maps?q=5%2C+Mandiri+ATM+Sona+Topas+Tower%2C+Jakarta&iwloc=near&output=embed" class="su-gmap" width="100%" frameborder="0" height="240"></iframe>-->
+<iframe style="margin-bottom:-5px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.508763484319!2d106.81241371521989!3d-6.196404262431091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f69f7717e9cb%3A0xc0d36c6dfe08f745!2sJl.+Kh.+Mas+Mansyur+No.59%2C+Tanah+Abang%2C+Kota+Jakarta+Pusat%2C+Daerah+Khusus+Ibukota+Jakarta+10230!5e0!3m2!1sen!2sid!4v1449129036686" class="su-gmap" width="100%" frameborder="0" height="240"></iframe>
+		
+		</div>
+	
+	</div>	
+</div>
+
